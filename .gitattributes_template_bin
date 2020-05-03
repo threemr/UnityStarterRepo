@@ -1,0 +1,154 @@
+# Combined .gitatributes to work properly with Unity and multiple work on MacOS and Windows (CRLF problems and others).
+# WARNING! Uses git lfs to handle big assets!
+
+#	Learn more at: 
+# 	https://thoughtbot.com/blog/how-to-git-with-unity
+# 	https://git-lfs.github.com/
+# 	https://stackoverflow.com/a/59166190
+# 	https://help.github.com/en/github/using-git/configuring-git-to-handle-line-endings
+
+# Handle CRLF issues on a per-repository basis (does not rely on global configuration.)
+* text=auto
+
+# Refreshing a repository after changing line endings:
+
+# 	Save your current files in Git, so that none of your work is lost.
+# 		$ git add . -u
+# 		$ git commit -m "Saving files before refreshing line endings"
+# 	Add all your changed files back and normalize the line endings.
+# 		$ git add --renormalize .
+# 	Show the rewritten, normalized files.
+# 		$ git status
+# 	Commit the changes to your repository.
+# 		$ git commit -m "Normalize all the line endings"
+
+
+
+# Unity
+*.cginc              text
+*.cs                 text diff=csharp
+*.shader             text
+
+# Unity YAML
+*.mat                merge=unityyamlmerge eol=lf
+*.anim               merge=unityyamlmerge eol=lf
+*.unity              merge=unityyamlmerge eol=lf
+*.prefab             merge=unityyamlmerge eol=lf
+*.asset              merge=unityyamlmerge eol=lf
+*.meta               merge=unityyamlmerge eol=lf
+*.controller         merge=unityyamlmerge eol=lf
+
+# "physic" for 3D but "physics" for 2D
+*.physicMaterial2D   merge=unityyamlmerge eol=lf
+*.physicMaterial     merge=unityyamlmerge eol=lf
+*.physicsMaterial2D  merge=unityyamlmerge eol=lf
+*.physicsMaterial    merge=unityyamlmerge eol=lf
+
+# Assets that are handled better (for source control purposes) by converting them to a text representation
+
+# 3D models
+*.3dm                filter=lfs diff=lfs merge=lfs binary
+*.3ds                filter=lfs diff=lfs merge=lfs binary
+*.blend              filter=lfs diff=lfs merge=lfs binary
+*.c4d                filter=lfs diff=lfs merge=lfs binary
+*.collada            filter=lfs diff=lfs merge=lfs binary
+*.dae                filter=lfs diff=lfs merge=lfs binary
+*.dxf                filter=lfs diff=lfs merge=lfs binary
+*.FBX                filter=lfs diff=lfs merge=lfs binary
+*.fbx                filter=lfs diff=lfs merge=lfs binary
+*.jas                filter=lfs diff=lfs merge=lfs binary
+*.lws                filter=lfs diff=lfs merge=lfs binary
+*.lxo                filter=lfs diff=lfs merge=lfs binary
+*.ma                 filter=lfs diff=lfs merge=lfs binary
+*.max                filter=lfs diff=lfs merge=lfs binary
+*.mb                 filter=lfs diff=lfs merge=lfs binary
+*.obj                filter=lfs diff=lfs merge=lfs binary
+*.ply                filter=lfs diff=lfs merge=lfs binary
+*.skp                filter=lfs diff=lfs merge=lfs binary
+*.stl                filter=lfs diff=lfs merge=lfs binary
+*.ztl                filter=lfs diff=lfs merge=lfs binary
+
+# Audio
+*.aif                filter=lfs diff=lfs merge=lfs binary
+*.aiff               filter=lfs diff=lfs merge=lfs binary
+*.it                 filter=lfs diff=lfs merge=lfs binary
+*.mod                filter=lfs diff=lfs merge=lfs binary
+*.mp3                filter=lfs diff=lfs merge=lfs binary
+*.ogg                filter=lfs diff=lfs merge=lfs binary
+*.s3m                filter=lfs diff=lfs merge=lfs binary
+*.wav                filter=lfs diff=lfs merge=lfs binary
+*.xm                 filter=lfs diff=lfs merge=lfs binary
+
+# Fonts
+*.otf                filter=lfs diff=lfs merge=lfs binary
+*.ttf                filter=lfs diff=lfs merge=lfs binary
+
+# Images
+*.bmp                filter=lfs diff=lfs merge=lfs binary
+*.exr                filter=lfs diff=lfs merge=lfs binary
+*.gif                filter=lfs diff=lfs merge=lfs binary
+*.hdr                filter=lfs diff=lfs merge=lfs binary
+*.iff                filter=lfs diff=lfs merge=lfs binary
+*.jpeg               filter=lfs diff=lfs merge=lfs binary
+*.jpg                filter=lfs diff=lfs merge=lfs binary
+*.pict               filter=lfs diff=lfs merge=lfs binary
+*.png                filter=lfs diff=lfs merge=lfs binary
+*.psd                filter=lfs diff=lfs merge=lfs binary
+*.tga                filter=lfs diff=lfs merge=lfs binary
+*.tif                filter=lfs diff=lfs merge=lfs binary
+*.tiff               filter=lfs diff=lfs merge=lfs binary
+
+# Assets that are handled better (for source control purposes) by converting them to a text representation
+
+# Using Git LFS
+# Add diff=lfs merge=lfs to the binary files
+
+# Unity LFS
+*.cubemap            filter=lfs diff=lfs merge=lfs binary
+*.unitypackage       filter=lfs diff=lfs merge=lfs binary
+
+# Video
+*.asf                filter=lfs diff=lfs merge=lfs binary
+*.avi                filter=lfs diff=lfs merge=lfs binary
+*.flv                filter=lfs diff=lfs merge=lfs binary
+*.mov                filter=lfs diff=lfs merge=lfs binary
+*.mp4                filter=lfs diff=lfs merge=lfs binary
+*.mpeg               filter=lfs diff=lfs merge=lfs binary
+*.mpg                filter=lfs diff=lfs merge=lfs binary
+*.ogv                filter=lfs diff=lfs merge=lfs binary
+*.wmv                filter=lfs diff=lfs merge=lfs binary
+
+# Compressed Archive
+*.7z                filter=lfs diff=lfs merge=lfs binary
+*.bz2               filter=lfs diff=lfs merge=lfs binary
+*.gz                filter=lfs diff=lfs merge=lfs binary
+*.rar               filter=lfs diff=lfs merge=lfs binary
+*.tar               filter=lfs diff=lfs merge=lfs binary
+*.zip               filter=lfs diff=lfs merge=lfs binary
+
+# Compiled Dynamic Library / build files
+*.dll               filter=lfs diff=lfs merge=lfs binary
+*.pdb               filter=lfs diff=lfs merge=lfs binary
+*.mdb               filter=lfs diff=lfs merge=lfs binary
+*.so                filter=lfs diff=lfs merge=lfs binary
+
+
+# Executable/Installer
+*.apk               filter=lfs diff=lfs merge=lfs binary
+*.exe               filter=lfs diff=lfs merge=lfs binary
+
+# Documents
+*.pdf               binary
+
+# ETC
+*.a                 binary
+*.rns               binary
+*.reason            binary
+
+# Collapse Unity-generated files *on GitHub* to avoid visual clutter when reviewing pull requests.
+# Learn more: https://thoughtbot.com/blog/github-diff-supression
+*.asset             linguist-generated
+*.mat               linguist-generated
+*.meta              linguist-generated
+*.prefab            linguist-generated
+*.unity             linguist-generated
